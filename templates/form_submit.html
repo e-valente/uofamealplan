@@ -23,6 +23,34 @@
            
             </div>
         </div>
+
+        <!---------------------------------------------------->
+         <div id="container">
+            <div class="title">
+                <h1>Quanto deseja gastar por dia?</h1>
+            </div>
+            <div id="content">
+
+                <form method="post" action="{{ url_for('hello') }}">
+                  <select name="cash_values">
+                <option value="21.00">21.00</option>
+              <option value="20.00">20.00</option>
+              <option value="19.00">19.00</option>
+              <option value="18.00">18.00</option>
+              </select>
+
+                  <label for="mealplan">Meal Plan (U$): ex: 980.00</label>
+                  <input type="text" name="mealplan" /><br />
+                  <label for="catcash">CatCash (U$):</label>
+                  <input type="text" name="catcash" /><br />
+                  <label for="notice-date">Último dia de aula: 18/dez/2014 (Use o calendário para modificar!):</label>
+                  <input type="date" name="mydate" value="2014-12-18"/><br/><br />
+                  <input type="submit" value="Vai!"/>
+                </form>
+            </div>
+           
+            </div>
+        </div>
     </body>
 </html>
  

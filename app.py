@@ -82,7 +82,7 @@ def hello():
 
     #return render_template('form_action.html', total=total, mealplan=mealplan, catcash=catcash, mydays=mydays)
     return render_template('form_action.html', total_per_day=total_per_day, total_days_boulevard=total_days_boulevard,\
-      total_days_uofa = total_days_uofa, mybalance = mybalance)
+      total_days_uofa = total_days_uofa, mybalance = mybalance, total_days_left=mydays)
 # Run the app :)
 if __name__ == '__main__':
   app.run(
