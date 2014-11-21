@@ -12,8 +12,9 @@
             </div>
             <div id="content">
             <ul>
-
+	   
             <li>Faltam : <strong>{{total_days_left}}</strong> dias para acabarem as aulas </li>
+             <li>Você vai viajar <strong>{{trip_days}}</strong> dias</li>
             
              <li>Você pode gastar por dia: <strong>U${{total_per_day}}</strong> </li>
              
@@ -29,6 +30,10 @@
              <li>Se você pretende gastar <strong>$21</strong> todos os dias, até o final das aulas você terá:  <strong>${{mybalance}}</strong></li>
             
               </ul>
+              <form action="../mp">
+		  <input type="submit" value="Voltar">
+		  </form>
+             <!-- <form><input type="button" value="Voltar" onClick="history.go(-1);return true;"></form>-->
     
                 
 

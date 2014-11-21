@@ -27,13 +27,14 @@ def hello():
     mealplan=request.form['mealplan']
     catcash=request.form['catcash']
     mydate=request.form['mydate']
+    trip_days = request.form['trip_select_days']
 
     '''
     if(mealplan.isnumeric() == False or \
       catcash.isnumeric() == False):
       return render_template('form_submit.html')
     '''
-
+ 
     try:
       mealplan = float(mealplan)
       catcash = float(catcash)
@@ -49,12 +50,18 @@ def hello():
     if(len(mealplan) == 0):
       return render_template('form_submit.html')
     '''
+    trip_days = int(trip_days)
     #date handling
+  
     mydatelist = mydate.split('-')
     mydate = date(int(mydatelist[0]), int(mydatelist[1]), int(mydatelist[2]))
     now = datetime.now()
     delta = mydate - now.date()
     mydays = abs(delta.days)
+   
+    
+    #update days by trip
+   
     '''
     if(len(mealplan) > 0 and len(catcash) == 0):
       mealplan = float(mealplan)
@@ -64,7 +71,7 @@ def hello():
       catcash = float(catcash)
     '''
 
-    total_per_day = (mealplan + catcash) / mydays
+    total_per_day = (mealplan + catcash) / (mydays - trip_days)
     total_per_day = "{0:.2f}".format(total_per_day)
 
     #boulevard
@@ -74,7 +81,7 @@ def hello():
     total_days_uofa = mealplan / 21.0
     total_days_uofa = "{0:.2f}".format(total_days_uofa)
 
-    ideal_balance = 21.0 * mydays
+    ideal_balance = 21.0 * (mydays - trip_days)
     mybalance =  (mealplan + catcash) - ideal_balance
     mybalance = "{0:.2f}".format(mybalance)
 
@@ -82,7 +89,7 @@ def hello():
 
     #return render_template('form_action.html', total=total, mealplan=mealplan, catcash=catcash, mydays=mydays)
     return render_template('form_action.html', total_per_day=total_per_day, total_days_boulevard=total_days_boulevard,\
-      total_days_uofa = total_days_uofa, mybalance = mybalance, total_days_left=mydays)
+      total_days_uofa = total_days_uofa, mybalance = mybalance, total_days_left=mydays, trip_days=trip_days)
 # Run the app :)
 if __name__ == '__main__':
   app.run(
