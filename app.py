@@ -34,7 +34,7 @@ def hello():
       catcash.isnumeric() == False):
       return render_template('form_submit.html')
     '''
- 
+
     try:
       mealplan = float(mealplan)
       catcash = float(catcash)
@@ -52,16 +52,16 @@ def hello():
     '''
     trip_days = int(trip_days)
     #date handling
-  
+
     mydatelist = mydate.split('-')
     mydate = date(int(mydatelist[0]), int(mydatelist[1]), int(mydatelist[2]))
     now = datetime.now()
     delta = mydate - now.date()
     mydays = abs(delta.days)
-   
-    
+
+
     #update days by trip
-   
+
     '''
     if(len(mealplan) > 0 and len(catcash) == 0):
       mealplan = float(mealplan)
