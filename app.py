@@ -75,13 +75,13 @@ def hello():
     total_per_day = "{0:.2f}".format(total_per_day)
 
     #boulevard
-    total_days_boulevard = catcash / 21.0
+    total_days_boulevard = catcash / 24.0
     total_days_boulevard = "{0:.2f}".format(total_days_boulevard)
 
-    total_days_uofa = mealplan / 21.0
+    total_days_uofa = mealplan / 24.0
     total_days_uofa = "{0:.2f}".format(total_days_uofa)
 
-    ideal_balance = 21.0 * (mydays - trip_days)
+    ideal_balance = 24.0 * (mydays - trip_days)
     mybalance =  (mealplan + catcash) - ideal_balance
     mybalance = "{0:.2f}".format(mybalance)
 
